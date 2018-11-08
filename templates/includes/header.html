@@ -1,0 +1,29 @@
+{% block header %}
+{% load static %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar10">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+	    	        <a class="nav-link" href="#">Наши товары</a>
+        	    </li>
+        	    <li class="nav-item">
+        	        <a class="nav-link" href="#">Где попробовать?</a>
+        	    </li>
+        		<li class="nav-item">
+        			<a class="navbar-brand active" href="/"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid"></a>
+        	 	</li>
+        	    <li class="nav-item">
+        	        <a class="nav-link" href="#">Отзывы клиентов</a>
+        	    </li>
+        	    <li class="nav-item">
+        	 		<a class="nav-link" href="#">Контакты</a>
+        	    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock header %}
