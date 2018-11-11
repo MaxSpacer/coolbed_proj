@@ -45,14 +45,16 @@
                 		</li>
                 	</ul>
                 	<div class="card-footer p-1">
-                        <form class="form-row form-inline justify-content-center">
+                        <form id = "form_buy_product" class="form-row form-inline justify-content-center">
                             <div class="col-lg-3 my-1">
                                 <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                                <input type="number" class="form-control" id="form-bying-product" placeholder="Шт." min="0" max="99" value="1" required>
+                            <input id="in-buy-product" type="number" class="form-control" placeholder="Шт." min="0" max="99" value="1" required>
                             </div>
                             <div class="col-lg-9 my-1">
 
-                            <button type="submit" class="btn btn-primary btn-block">Добавить в корзину.</button>
+                            <button id="in-buy-btn" type="submit" class="btn btn-success btn-block" data-product_id="{{ product.id }}" data-product_name="{{ product.name }}"
+                                data-product_price="{{ product.price }}"
+                            >Добавить в корзину.</button>
 
                             </div>
 
