@@ -1,8 +1,7 @@
-/* #form-bying-product .input-group {
-    max-width: 2%;
-} */
+.dropdown-menu {
+    left: -311% ;
 
-
+}
 .input[type="number"] {
   -webkit-appearance: textfield;
      -moz-appearance: textfield;

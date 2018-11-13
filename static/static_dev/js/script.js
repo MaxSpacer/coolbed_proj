@@ -3,7 +3,6 @@ $(document).ready(function() {
     console.log(form);
     form.on('submit', function(e){
         e.preventDefault();
-        // console.log('123');
         var numb = $('#in-buy-product').val();
         console.log(numb);
         var in_buy_btn = $('#in-buy-btn');
@@ -13,7 +12,14 @@ $(document).ready(function() {
         console.log(product_name);
         console.log(product_id);
         console.log(product_price);
-    })
 
+        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="#">X</a>'+'</td></ tr>');
 
+    });
+
+    $(document).on('click', '.delete-item', function(e) {
+        e.preventDefault();
+        $(this).closest('tr').remove();
+        reshowBasket(e);
+    });
 });
