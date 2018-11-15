@@ -20,3 +20,7 @@ admin.site.register(Status_order, Status_orderAdmin)
 class ProductinOrderAdmin(admin.ModelAdmin):
     list_display = [field.name for field in ProductinOrder._meta.fields]
 admin.site.register(ProductinOrder, ProductinOrderAdmin)
+
+class ProductinBasketAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in ProductinBasket._meta.fields]
+admin.site.register(ProductinBasket, ProductinBasketAdmin)

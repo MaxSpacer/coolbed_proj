@@ -13,13 +13,56 @@ $(document).ready(function() {
         console.log(product_id);
         console.log(product_price);
 
-        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="#">X</a>'+'</td></ tr>');
+        var data  = {};
+        data.product_id = product_id;
+        data.numb = numb;
+        // data.product_price = product_price;
+        var csrf_token = $('#form_buy_product [name="csrfmiddlewaretoken"]').val();
+        data["csrfmiddlewaretoken"] = csrf_token;
+        var url = form.attr("action");
+        console.log(data);
+        $.ajax({
+                   url: url,
+                   type: "POST",
+                   data: data,
+                   cache: true,
+                   success: function (data) {
+                       console.log("OK");
+                       console.log(data.products_total_nmb);
+                       if (data.products_total_nmb){
+                           $('#basket_total_nmb').text("("+data.products_total_nmb+")");
+                       }
+                       // console.log(data.products_total_nmb);
+                       // if (data.products_total_nmb || data.products_total_nmb == 0){
+                       //    $('#basket_total_nmb').text("("+data.products_total_nmb+")");
+                       //     console.log(data.products);
+                       //     $('.basket-items ul').html("");
+                       //     $.each(data.products, function(k, v){
+                       //        $('.basket-items ul').append('<li>'+ v.name+', ' + v.nmb + 'шт. ' + 'по ' + v.price_per_item + 'грн  ' +
+                       //            '<a class="delete-item" href="" data-product_id="'+v.id+'">x</a>'+
+                       //            '</li>');
+                       //     });
+                       // }
+
+                   },
+                   error: function(){
+                       console.log("error");
+                   },
+
+        });
+        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="">X</a>'+'</td></ tr>');
 
     });
+
+
+    function reshowBasket(){
+        $('.dropdown-menu').addClass('show');
+
+    };
 
     $(document).on('click', '.delete-item', function(e) {
         e.preventDefault();
         $(this).closest('tr').remove();
-        reshowBasket(e);
+        reshowBasket();
     });
 });
