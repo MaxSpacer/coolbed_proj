@@ -50,14 +50,15 @@ $(document).ready(function() {
                    },
 
         });
-        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="">X</a>'+'</td></ tr>');
+        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="#">X</a>'+'</td></ tr>');
 
     });
 
 
-    function reshowBasket(){
-        $('.dropdown-menu').addClass('show');
+    function reshowBasket(e){
+        e.preventDefault();
 
+        $('.dropdown-menu').addClass('show');
     };
 
     $(document).on('click', '.delete-item', function(e) {
