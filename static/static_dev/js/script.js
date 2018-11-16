@@ -30,8 +30,12 @@ $(document).ready(function() {
                        console.log("OK");
                        console.log(data.products_total_nmb);
                        if (data.products_total_nmb){
-                           $('#basket_total_nmb').text("("+data.products_total_nmb+")");
-                       }
+                            $('#basket_total_nmb').text("("+data.products_total_nmb+")");
+                            console.log(data.products);
+                            $('#table-basket tbody').html("");
+                            $.each(data.products, function(k, v){
+                                $('#table-basket').append('<tr><td>'+v.product_name+'</ td><td>'+v.numb+' шт.</td><td> по '+v.price_per_item+' руб.</ td>');
+                            });
                        // console.log(data.products_total_nmb);
                        // if (data.products_total_nmb || data.products_total_nmb == 0){
                        //    $('#basket_total_nmb').text("("+data.products_total_nmb+")");
@@ -42,7 +46,7 @@ $(document).ready(function() {
                        //            '<a class="delete-item" href="" data-product_id="'+v.id+'">x</a>'+
                        //            '</li>');
                        //     });
-                       // }
+                        };
 
                    },
                    error: function(){
@@ -50,20 +54,19 @@ $(document).ready(function() {
                    },
 
         });
-        $('#table-basket').append('<tr><td>'+product_name+'</ td><td>'+numb+'</td><td>'+product_price+'</ td><td>'+'<a class="delete-item" href="#">X</a>'+'</td></ tr>');
-
+//+'<a class="delete-item" href="#">X</a>'+'</td></ tr>'
     });
 
 
-    function reshowBasket(e){
-        e.preventDefault();
-
-        $('.dropdown-menu').addClass('show');
-    };
-
-    $(document).on('click', '.delete-item', function(e) {
-        e.preventDefault();
-        $(this).closest('tr').remove();
-        reshowBasket();
-    });
+    // function reshowBasket(e){
+    //     e.preventDefault();
+    //
+    //     $('.dropdown-menu').addClass('show');
+    // };
+    //
+    // $(document).on('click', '.delete-item', function(e) {
+    //     e.preventDefault();
+    //     $(this).closest('tr').remove();
+    //     reshowBasket();
+    // });
 });
