@@ -48,14 +48,13 @@
                         <form class="formBuyProduct form-row form-inline justify-content-center" action="{% url 'basket_adding' %}">{% csrf_token %}
                             <div class="col-lg-3 my-1">
                                 <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                            <input type="number" class="inBuyProduct form-control" placeholder="Шт." min="0" max="99" value="1" required>
+                                <input type="number" class="inBuyProduct form-control" placeholder="Шт." min="0" max="99" value="1" required>
                             </div>
                             <div class="col-lg-9 my-1">
-
-                            <button type="submit" class="in-buy-btn btn btn-success btn-block" data-product_id="{{ product.id }}" data-product_name="{{ product.name }}"
-                                data-product_price="{{ product.price }}"
-                            >Добавить в корзину.</button>
-
+                                <button type="submit" class="inBuyBtn btn btn-success btn-block" data-product_id="{{ product.id }}" data-product_name="{{ product.name }}"
+                                data-product_price="{{ product.price }}">
+                                Добавить в корзину.
+                                </button>
                             </div>
                         </form>
 

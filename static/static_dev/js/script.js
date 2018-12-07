@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var form = $('.formBuyProduct');
-    var clikForm = $(this);
-    console.log(clikForm);
+    // var clikForm = $(this);
+    // console.log(clikForm);
     function basketUpdating(product_id, numb, is_delete){
 
         var data  = {};
@@ -45,20 +45,19 @@ $(document).ready(function() {
 
     form.on('submit', function(e){
         e.preventDefault();
-        var clikedForm = $(this);
-            console.log("сдшсл");
-            console.log(clikedForm);
-        inputObj = $('.inBuyProduct');
-        if (inputObj.length){
-            var numb = inputObj.val();
-            console.log("numb");
-            console.log(numb);
-        }
-        else { var numb = 1;
-        console.log("onenumb");
+        console.log($(this));
+        console.log("inb");
+        var clikedForm = $(this).find('.inBuyProduct');
+        console.log(clikedForm);
+        console.log("inb");
+
+        var numb = clikedForm.val();
+        console.log("numb");
         console.log(numb);
-        }
-        var in_buy_btn = $('.in-buy-btn');
+        console.log("numb");
+
+        var in_buy_btn = $(this).find('.inBuyBtn');
+
         console.log("in");
         console.log(in_buy_btn);
         var product_name = in_buy_btn.data("product_name");
