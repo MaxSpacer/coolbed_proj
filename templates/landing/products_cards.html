@@ -17,7 +17,16 @@
 		</li>
 	</ul>
 	<div class="card-footer">
-		<a href="#" class="btn btn-success">Go somewhere</a>
+
+		<form class="formBuyProduct form-row form-inline justify-content-center" action="{% url 'basket_adding' %}">{% csrf_token %}
+				<label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+			<input type="hidden" class="inBuyProduct form-control" name = "val" value="1" required>
+			<button type="submit" class="in-buy-btn btn btn-success btn-block" data-product_id="{{ product_image.product.id }}" data-product_name="{{ product_image.product.name }}"
+				data-product_price="{{ product_image.product.price }}"
+			>Добавить в корзину.</button>
+		</form>
+
+		<!-- <a href="#" class="btn btn-success">Go somewhere</a> -->
 	</div>
 </div>
 {% endblock products_cards %}
