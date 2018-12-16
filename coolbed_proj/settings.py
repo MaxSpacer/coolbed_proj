@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'modposting',
     'orders',
     'products',
+    'checkout',
 ]
 
 MIDDLEWARE = [

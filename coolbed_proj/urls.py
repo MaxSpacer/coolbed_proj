@@ -27,6 +27,7 @@ urlpatterns = [
     path('posts/', include('modposting.urls')),
     path('product/', include('products.urls')),
     path('basket_adding/', include('orders.urls')),
+    path('checkout/', include('checkout.urls')),
     re_path(r'^tinymce/', include('tinymce.urls')),
 ]
 if settings.DEBUG:

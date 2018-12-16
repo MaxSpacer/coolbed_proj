@@ -1,5 +1,6 @@
 from django.template.context_processors import request
 from .models import ProductinBasket
+from products.models import *
 
 
 def getting_basket_info(request):
@@ -12,7 +13,9 @@ def getting_basket_info(request):
         request.session.cycle_key()
 
     products_in_basket = ProductinBasket.objects.filter(pb_session_key=session_key, pb_is_active=True)
-    # order__isnull=True
     products_total_nmb = products_in_basket.count()
-
+    total_price = 0
+    for product_in_basket in products_in_basket:
+        total_price += product_in_basket.pb_total_price
+    
     return locals()

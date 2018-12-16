@@ -1,3 +1,21 @@
+.table td {
+    vertical-align: middle;
+    padding: .45rem;
+}
+
+
+
+a {
+    color: #3e9757;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+.product-image-checkout {
+    max-width: 50px;
+}
+
 .dropdown-menu {
     left: -311% ;
 
